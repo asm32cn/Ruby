@@ -6,7 +6,6 @@
 class BubbleSortDemo1
     def DisplayData(data)
         puts data.join(', ')
-        # puts "DisplayData..."
     end
 
     def BubbleSort(data)
