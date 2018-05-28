@@ -4,20 +4,20 @@
 # ruby-bubblesort-demo-1.rb
 
 class BubbleSortDemo1
-    def DisplayData(data)
-        puts data.join(', ')
-    end
+	def DisplayData(data)
+		puts data.join(', ')
+	end
 
-    def BubbleSort(data)
-        n = data.size # data.length
-        for j in 0 .. (n - 2)
-            for i in 0 .. (n - 2 - j)
-                if data[i] > data[i + 1] then
-                    data[i], data[i + 1] = data[i + 1], data[i]
-                end
-            end
-        end
-    end
+	def BubbleSort(data)
+		n = data.size # data.length
+		for j in 0 .. (n - 2)
+			for i in 0 .. (n - 2 - j)
+				if data[i] > data[i + 1] then
+					data[i], data[i + 1] = data[i + 1], data[i]
+				end
+			end
+		end
+	end
 end
 
 def main
