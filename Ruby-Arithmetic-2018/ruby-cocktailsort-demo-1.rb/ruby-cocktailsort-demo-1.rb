@@ -8,11 +8,12 @@ class CocktailSortDemo1
 		puts data.join(', ')
 	end
 
-	def Swap(data, i, j)
-		data[i], data[j] = data[j], data[i]
-	end
-
 	def CocktailSort(data)
+
+		def Swap(data, i, j)
+			data[i], data[j] = data[j], data[i]
+		end
+
 		nLeft = 0
 		nRight = data.size - 1
 		while nLeft < nRight
