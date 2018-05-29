@@ -39,9 +39,9 @@ def main
 	data = [76, 11, 11, 43, 78, 35, 39, 27, 16, 55, 1, 41, 24, 19, 54, 7, 78, 69, 65, 82];
 
 	csd = CocktailSortDemo1.new
-	csd.DisplayData data
-	csd.CocktailSort data
-	csd.DisplayData data
+	csd.DisplayData(data)
+	csd.CocktailSort(data)
+	csd.DisplayData(data)
 end
 
 main
