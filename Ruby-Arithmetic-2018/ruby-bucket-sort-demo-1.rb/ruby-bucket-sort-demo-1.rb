@@ -14,13 +14,13 @@ class BucketSortDemo1
 	end
 
 	def BucketSort(data)
-		CountingSort data
+		CountingSort(data)
 		n = data.size
 		for i in 0 .. BN - 1
 			nLeft = C[i]
 			nRight = (i == BN - 1 ? n - 1 : C[i + 1] - 1)
 			if nLeft < nRight
-				InsertionSort data, nLeft, nRight
+				InsertionSort(data, nLeft, nRight)
 			end
 		end
 	end
@@ -35,14 +35,14 @@ class BucketSortDemo1
 			C[i] = 0
 		end
 		for i in 0 .. n - 1
-			C[MapToBucket data[i]] += 1
+			C[MapToBucket(data[i])] += 1
 		end
 		for i in 1 .. BN - 1
 			C[i] += C[i - 1]
 		end
 		@B = Array.new(n)
 		for i in (n - 1).downto(0)
-			@B[C[MapToBucket data[i]] -= 1] = data[i]
+			@B[C[MapToBucket(data[i])] -= 1] = data[i]
 		end
 		for i in 0 .. n - 1
 			data[i] = @B[i]
