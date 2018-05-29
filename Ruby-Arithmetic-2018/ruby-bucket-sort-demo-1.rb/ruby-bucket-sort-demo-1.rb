@@ -67,9 +67,9 @@ def main
 	data = Array[76, 11, 11, 43, 78, 35, 39, 27, 16, 55, 1, 41, 24, 19, 54, 7, 78, 69, 65, 82]
 
 	bsd = BucketSortDemo1.new
-	bsd.DisplayData data
-	bsd.BucketSort data
-	bsd.DisplayData data
+	bsd.DisplayData(data)
+	bsd.BucketSort(data)
+	bsd.DisplayData(data)
 end
 
 main
