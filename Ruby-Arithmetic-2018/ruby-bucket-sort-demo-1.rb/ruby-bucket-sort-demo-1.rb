@@ -40,12 +40,12 @@ class BucketSortDemo1
 		for i in 1 .. BN - 1
 			C[i] += C[i - 1]
 		end
-		ba = Array.new(n)
+		@B = Array.new(n)
 		for i in (n - 1).downto(0)
-			ba[C[MapToBucket data[i]] -= 1] = data[i]
+			@B[C[MapToBucket data[i]] -= 1] = data[i]
 		end
 		for i in 0 .. n - 1
-			data[i] = ba[i]
+			data[i] = @B[i]
 		end
 	end
 
