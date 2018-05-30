@@ -40,26 +40,53 @@ class MergeSortDemo1
         end
     end
 
+	# 递归实现的归并排序(自顶向下)
     def MergeSortRecursion(data, nLeft, nRight)
-        if nLeft == nRight then
-            return
-        end
+		# 当待排序的序列长度为1时，递归开始回溯，进行merge操作
+        if nLeft == nRight then; return; end
 
         nMid = (nLeft + nRight) / 2
         MergeSortRecursion(data, nLeft, nMid)
         MergeSortRecursion(data, nMid + 1, nRight)
         Merge(data, nLeft, nMid, nRight)
     end
+
+    # 非递归(迭代)实现的归并排序(自底向上)
+    def MergeSortIteration(data)
+    	# 子数组索引，前一个为A[left ... mid]，后一个为A[mid + 1 ... right]
+    	n = data.size
+    	# 子数组的大小i初始为1，每轮翻倍
+    	i = 1
+    	while i < n
+    		nLeft = 0
+    		# 后一个子数组存在(需要归并)
+    		while nLeft + 1 < n
+    			nMid = nLeft + i - 1
+    			# 后一个子数组大小可能不够
+    			nRight = nMid + i < n ? nMid + i : n - 1
+    			Merge(data, nLeft, nMid, nRight)
+    			# 前一个子数组索引向后移动
+    			nLeft = nRight + 1
+    		end
+    		i *= 2
+    	end
+    end
 end
 
 def Main()
-    data = [41, 67, 34, 0, 69, 24, 78, 58, 62, 64, 5, 45, 81, 27, 61, 91, 95, 42, 27, 36]
-    # data = [76, 11, 11, 43, 78, 35, 39, 27, 16, 55, 1, 41, 24, 19, 54, 7, 78, 69, 65, 82]
+    # data1 = [41, 67, 34, 0, 69, 24, 78, 58, 62, 64, 5, 45, 81, 27, 61, 91, 95, 42, 27, 36]
+    data1 = [76, 11, 11, 43, 78, 35, 39, 27, 16, 55, 1, 41, 24, 19, 54, 7, 78, 69, 65, 82]
+    data2 = [76, 11, 11, 43, 78, 35, 39, 27, 16, 55, 1, 41, 24, 19, 54, 7, 78, 69, 65, 82]
 
     msd = MergeSortDemo1.new
-    msd.DisplayData(data)
-    msd.MergeSortRecursion(data, 0, data.size - 1)
-    msd.DisplayData(data)
+    msd.DisplayData(data1)
+    msd.MergeSortRecursion(data1, 0, data1.size - 1)
+    msd.DisplayData(data1)
+
+    puts
+    msd.DisplayData(data2)
+    msd.MergeSortIteration(data2)
+    msd.DisplayData(data2)
 end
 
 Main()
