@@ -14,7 +14,7 @@ class MergeSortDemo1
         nIndex = 0
         i = nLeft
         j = nMid + 1
-        while j <= nMid && j <= nRight
+        while i <= nMid && j <= nRight
             if data[i] <= data[j] then
                 temp[nIndex] = data[i]
                 i += 1
